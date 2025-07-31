@@ -33,6 +33,7 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
   void initState() {
     super.initState();
     _initializeController();
+    print("ss");
   }
 
   void _initializeController() {
