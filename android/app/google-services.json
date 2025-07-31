@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "661104501358",
+    "project_id": "claive-76b81",
+    "storage_bucket": "claive-76b81.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661104501358:android:fdee5371248c331066bc7f",
+        "android_client_info": {
+          "package_name": "com.ClassLive"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8xr-fn2X3gdRsW8b54RpFul9BpueKUuY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
