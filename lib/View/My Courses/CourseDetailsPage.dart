@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import '../BottomNavigation/bottomNavigation.dart';
 
 class CourseDetailsPage extends StatefulWidget {
   final Map<String, dynamic> course;
@@ -40,8 +39,7 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
     final videoUrl = lectures[selectedLectureIndex]['videoUrl']!;
     final videoId = YoutubePlayer.convertUrlToId(videoUrl)!;
 
-    _controller = YoutubePlayerController(
-      initialVideoId: videoId,
+    _controller = YoutubePlayerController(initialVideoId: videoId,
       flags: const YoutubePlayerFlags(
         autoPlay: false,
         mute: false,

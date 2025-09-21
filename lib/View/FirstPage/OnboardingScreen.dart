@@ -1,8 +1,10 @@
 import 'dart:math';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../Home/Home.dart';
+import '../Profile/LogOutAccount/AccountList/Login-singup/Login.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -125,8 +127,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void _finish() {
-    Get.offAll(() => const Home(), transition: Transition.fadeIn);
+    final user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      Get.offAll(() => const Home(), transition: Transition.fadeIn);
+    } else {
+      Get.offAll(() => const Login(), transition: Transition.fadeIn);
+    }
   }
+
 
   @override
   Widget build(BuildContext context) {

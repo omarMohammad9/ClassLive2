@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../Home/Home.dart';
+import '../Profile/LogOutAccount/AccountList/Login-singup/Login.dart';
 import 'SecondPage-Language.dart';
 
 class firstpage extends StatefulWidget {
@@ -28,8 +30,27 @@ class _FirstPageState extends State<firstpage> {
   Future<void> _checkLanguageChosen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool? isLanguageChosen = prefs.getBool('isLanguageChosen');
-    await Future.delayed(const Duration(seconds: 5), () {
-      Get.offAll(isLanguageChosen == true ?  Home() : const LanguageScreenModern(),transition: Transition.fadeIn);
+
+    await Future.delayed(const Duration(seconds: 3), () {
+      if (isLanguageChosen != true) {
+        Get.offAll(
+          const LanguageScreenModern(),
+          transition: Transition.fadeIn,
+        );
+      } else {
+        final user = FirebaseAuth.instance.currentUser;
+        if (user != null) {
+          Get.offAll(
+            Home(),
+            transition: Transition.fadeIn,
+          );
+        } else {
+          Get.offAll(
+            const Login(),
+            transition: Transition.fadeIn,
+          );
+        }
+      }
     });
   }
 

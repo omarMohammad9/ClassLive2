@@ -12,18 +12,17 @@ import 'api/firebase_api.dart';
 import 'View/Profile/LogInAccount/AccountList/Notifications.dart';
 import 'locale/locale.dart';
 import 'locale/localeController.dart';
+import 'package:screen_protector/screen_protector.dart';
 
-/// حفظ الإشعار فوراً في Firestore عند استلامه في الخلفية
+
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
   print('تم استلام إشعار في الخلفية: ${message.notification?.title}');
   await _saveMessageDirectlyToFirestore(message);
 }
 
-/// حفظ الإشعار مباشرة في Firestore
 Future<void> _saveMessageDirectlyToFirestore(RemoteMessage message) async {
   try {
-    // البحث عن آخر مستخدم مسجل دخول (يمكن استخدام SharedPreferences لحفظ UID)
     String? lastUserId = await _getLastLoggedInUserId();
 
     if (lastUserId == null || lastUserId.isEmpty) {
@@ -92,6 +91,7 @@ Future<String?> _getLastLoggedInUserId() async {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  ScreenProtector.preventScreenshotOn();
   await initializeDateFormatting('ar');
 
   // سجل معالج الخلفية - يحفظ الإشعارات مباشرة عندما يكون التطبيق مغلق

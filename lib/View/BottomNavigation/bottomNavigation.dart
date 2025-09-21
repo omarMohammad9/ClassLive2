@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
 import '../Home/Home.dart';
 import '../My Courses/My Courses.dart';
 import '../Profile/LogInAccount/home page.dart';
-import '../Profile/LogOutAccount/Home Page/accountHome.dart';
 import '../Quizzes/Quizzes.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -49,9 +46,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           nextPage = My_Courses();
           break;
         case 4:
-          nextPage = FirebaseAuth.instance.currentUser == null
-              ? const accountHome()
-              : const personal();
+          nextPage = personal();
           break;
         default:
           nextPage = Home();

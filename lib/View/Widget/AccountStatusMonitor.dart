@@ -7,9 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ss122/View/Profile/LogOutAccount/AccountList/Login-singup/Login.dart';
 
-import '../Home/Home.dart';
-import '../Profile/LogOutAccount/Home Page/accountHome.dart';
-import '../Profile/LogOutAccount/Home Page/accountList.dart';
 
 class AccountStatusMonitor {
   static final AccountStatusMonitor _instance = AccountStatusMonitor._();
@@ -19,13 +16,11 @@ class AccountStatusMonitor {
   StreamSubscription<DocumentSnapshot<Map<String, dynamic>>>? _fireSub;
   Timer? _reloadTimer;
 
-  /// ابدأ المراقبة كلياً
   void start() {
     _startFirestoreListener();
     _startAuthReloadChecks();
   }
 
-  /// أوقف كل المراقبات
   void stop() {
     _fireSub?.cancel();
     _fireSub = null;
@@ -53,12 +48,9 @@ class AccountStatusMonitor {
     });
   }
 
-  //––– Authentication reload checker
   void _startAuthReloadChecks() {
     _reloadTimer?.cancel();
-    // تأكّد فوراً
     _checkAuthDisabled();
-    // ثم دوريّاً كل دقيقة (يمكنك تعديل المديّة)
     _reloadTimer = Timer.periodic(const Duration(minutes: 1), (_) {
       _checkAuthDisabled();
     });
@@ -69,7 +61,6 @@ class AccountStatusMonitor {
     if (user == null) return;
     try {
       await user.reload();
-      // إذا لم يرمي استثناء => الحساب لا يزال مفعل
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-disabled') {
         _handleDisabled();
@@ -81,9 +72,8 @@ class AccountStatusMonitor {
     }
   }
 
-  //––– معاملة التعطيل (عرض حوار + تسجيل خروج)
   void _handleDisabled() {
-    stop(); // أوقف كل المراقبات عشان ما يتكرّر
+    stop();
     Get.dialog(
       Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -117,7 +107,7 @@ class AccountStatusMonitor {
                 child: ElevatedButton(
                   onPressed: () {
                     FirebaseAuth.instance.signOut();
-                    Get.offAll(Home());
+                    Get.offAll(Login());
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.redAccent,

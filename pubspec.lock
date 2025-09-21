@@ -42,7 +42,7 @@ packages:
     source: hosted
     version: "1.1.1"
   cloud_firestore:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: cloud_firestore
       sha256: "39be8bf17e55d1211d8e2142ba1551bbcf30e272fe90adb36d54a9b1ae97bd30"
@@ -130,7 +130,7 @@ packages:
     source: hosted
     version: "7.0.1"
   firebase_auth:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: firebase_auth
       sha256: f5b640f664aae71774b398ed765740c1b5d34a339f4c4975d4dde61d59a623f6
@@ -178,7 +178,7 @@ packages:
     source: hosted
     version: "2.24.1"
   firebase_messaging:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: firebase_messaging
       sha256: "0f3363f97672eb9f65609fa00ed2f62cc8ec93e7e2d4def99726f9165d3d8a73"
@@ -202,7 +202,7 @@ packages:
     source: hosted
     version: "3.10.9"
   firebase_storage:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: firebase_storage
       sha256: "172b53e91be47e7e17760b574ef0dce03e071f669eebc8348358ac540b53afa4"
@@ -239,7 +239,7 @@ packages:
     source: hosted
     version: "3.6.2"
   flutter_chat_ui:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: flutter_chat_ui
       sha256: "168a4231464ad00a17ea5f0813f1b58393bdd4035683ea4dc37bbe26be62891e"
@@ -353,7 +353,7 @@ packages:
     source: sdk
     version: "0.0.0"
   get:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: get
       sha256: c79eeb4339f1f3deffd9ec912f8a923834bec55f7b49c9e882b8fef2c139d425
@@ -369,7 +369,7 @@ packages:
     source: hosted
     version: "0.15.6"
   http:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: http
       sha256: "2c11f3f94c687ee9bad77c171151672986360b2b001d109814ee7140b2cf261b"
@@ -520,6 +520,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  screen_protector:
+    dependency: "direct main"
+    description:
+      name: screen_protector
+      sha256: "305fd157f6f0b210afe216e790022bfe469c3b1d1f2e0d3dcc5906cc9c49c3e9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.4.2+1"
   scroll_to_index:
     dependency: transitive
     description:
@@ -529,7 +537,7 @@ packages:
     source: hosted
     version: "3.0.1"
   shared_preferences:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: shared_preferences
       sha256: "6e8bf70b7fef813df4e9a36f658ac46d107db4b4cfe1048b477d4e453a8159f5"
@@ -590,7 +598,7 @@ packages:
     source: sdk
     version: "0.0.99"
   smooth_page_indicator:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: smooth_page_indicator
       sha256: b21ebb8bc39cf72d11c7cfd809162a48c3800668ced1c9da3aade13a32cf6c1c
@@ -654,7 +662,7 @@ packages:
     source: hosted
     version: "1.4.0"
   url_launcher:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: url_launcher
       sha256: "9d06212b1362abc2f0f0d78e6f09f726608c74e3b9462e8368bb03314aa8d603"
@@ -758,7 +766,7 @@ packages:
     source: hosted
     version: "1.1.0"
   youtube_player_flutter:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: youtube_player_flutter
       sha256: "4d14aa47f9c84929b5400a87ade4dcfdab87a2ca2e0b18ecc2ef852b1440e123"
